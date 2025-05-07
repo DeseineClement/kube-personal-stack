@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: n8n
+  namespace: argo-cd
+spec:
+  description: Projet ArgoCD pour la gestion de n8n
+  sourceRepos:
+    - '*'
+  destinations:
+    - namespace: n8n
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*' 

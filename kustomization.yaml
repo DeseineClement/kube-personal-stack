@@ -1,0 +1,7 @@
+resources:
+  - Application.traefik.yaml
+  - Application.n8n.yaml
+  - AppProject.traefik.yaml
+  - AppProject.n8n.yaml
+  - Repository.traefik.yaml
+  - Repository.community-charts.yaml

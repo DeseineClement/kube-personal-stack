@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: repo-community-charts
+  namespace: argo-cd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  name: repo-community-charts
+  project: n8n
+  type: helm
+  url: https://community-charts.github.io/helm-charts
+type: Opaque 

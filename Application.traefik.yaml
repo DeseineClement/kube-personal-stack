@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  namespace: argo-cd
+spec:
+  destination:
+    namespace: traefik
+    server: https://kubernetes.default.svc
+  project: traefik
+  source:
+    chart: traefik
+    helm:
+      valuesObject:
+        ingressRoute:
+          dashboard:
+            enabled: true
+            entryPoints:
+              - web
+            matchRule: Host(`traefik.localhost`)
+    repoURL: https://traefik.github.io/charts
+    targetRevision: 35.2.0
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
