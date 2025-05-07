@@ -18,6 +18,8 @@ spec:
           N8N_SECURE_COOKIE: "false"
         ingress:
           enabled: true
+          annotations:
+            traefik.ingress.kubernetes.io/router.entrypoints: web
           hosts:
             - host: n8n.localhost
               paths:
