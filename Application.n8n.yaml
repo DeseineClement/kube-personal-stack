@@ -14,8 +14,27 @@ spec:
     targetRevision: 1.5.10
     helm:
       valuesObject:
+        db:
+          type: postgresdb
+
+        worker:
+          mode: queue
+        
+        webhook:
+          mode: queue
+
+        postgresql:
+          enabled: true
+
+        minio:
+          enabled: true
+
+        redis:
+          enabled: true
+
         extraEnvVars:
           N8N_SECURE_COOKIE: "false"
+
         ingress:
           enabled: true
           annotations:
